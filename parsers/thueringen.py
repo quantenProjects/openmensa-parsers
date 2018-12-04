@@ -86,6 +86,8 @@ def parse_meals(day, groups):
 			notes = [groups[note] for note in ingredients_list if note in groups]
 
 		main_dish = ingredients_regex.sub('', meal_t_datas[1].text).strip()
+		if len(main_dish) == 0:
+			continue
 
 		students_fee_string = amount_regex.findall(meal_t_datas[2].text)
 		if len(students_fee_string) != 1:
